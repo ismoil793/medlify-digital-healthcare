@@ -19,7 +19,7 @@ export const AddTodo = ({ onSubmit }) => {
       setValue('')
       Keyboard.dismiss()
     } else {
-      Alert.alert('Название дела не может быть пустым')
+      Alert.alert('Disease symptom cannot be empty')
     }
   }
 
@@ -29,14 +29,14 @@ export const AddTodo = ({ onSubmit }) => {
         style={styles.input}
         onChangeText={setValue}
         value={value}
-        placeholder='Введите название дела...'
+        placeholder='Enter name of symptom...'
         autoCorrect={false}
         autoCapitalize='none'
       />
       <AntDesign.Button onPress={pressHandler} name='pluscircleo'>
-        Добавить
+        Add&nbsp;&nbsp;&nbsp;
       </AntDesign.Button>
-      {/* <Button title='Добавить' onPress={pressHandler} /> */}
+      {/* <Button title='Add' onPress={pressHandler} /> */}
     </View>
   )
 }
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   input: {
-    width: '60%',
+    width: '68%',
     padding: 10,
     borderStyle: 'solid',
     borderBottomWidth: 2,

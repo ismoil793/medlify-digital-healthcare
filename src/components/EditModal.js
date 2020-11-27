@@ -9,10 +9,9 @@ export const EditModal = ({ visible, onCancel, value, onSave }) => {
   const saveHandler = () => {
     if (title.trim().length < 3) {
       Alert.alert(
-        'Ошибка!',
-        `Минимальная длинна названия 3 символа. Сейчас ${
-          title.trim().length
-        } символов.`
+        'Something went wrong!',
+        `Minimum length of symptom name is 3 characters.
+         Now it is ${title.trim().length} characters.`
       )
     } else {
       onSave(title)
@@ -31,16 +30,16 @@ export const EditModal = ({ visible, onCancel, value, onSave }) => {
           value={title}
           onChangeText={setTitle}
           style={styles.input}
-          placeholder='Введите название'
+          placeholder='Name of symptom'
           autoCapitalize='none'
           autoCorrect={false}
           maxLength={64}
         />
         <View style={styles.buttons}>
           <AppButton onPress={cancelHandler} color={THEME.DANGER_COLOR}>
-            Отменить
+            Cancel
           </AppButton>
-          <AppButton onPress={saveHandler}>Сохранить</AppButton>
+          <AppButton onPress={saveHandler}>Save</AppButton>
         </View>
       </View>
     </Modal>

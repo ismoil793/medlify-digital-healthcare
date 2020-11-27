@@ -9,16 +9,27 @@ import {
 import { AppTextBold } from './AppTextBold'
 import { THEME } from '../../theme'
 
-export const AppButton = ({ children, onPress, color = THEME.MAIN_COLOR }) => {
+export const AppButton = ({ children, onPress, color = THEME.MAIN_COLOR, home }) => {
   const Wrapper =
     Platform.OS === 'android' ? TouchableNativeFeedback : TouchableOpacity
 
+  const style = home ?
+    {
+      ...styles.button,
+      backgroundColor: color,
+      ...styles.buttonHome
+    }
+    : {
+      ...styles.button,
+      backgroundColor: color,
+    }
+
   return (
     <Wrapper onPress={onPress} activeOpacity={0.7}>
-      <View style={{ ...styles.button, backgroundColor: color }}>
+      <View style={style}>
         <AppTextBold style={styles.text}>{children}</AppTextBold>
       </View>
-    </Wrapper>
+    </Wrapper >
   )
 }
 
@@ -30,6 +41,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  buttonHome: {
+    borderRadius: 0,
+    paddingVertical: 20,
   },
   text: {
     color: '#fff'
